@@ -1,0 +1,408 @@
+.adminContainer {
+  margin: auto;
+  background: linear-gradient(145deg, #0a0a0a, #0f1e2e, #1a2a40);
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
+  color: #fff;
+  height: 100dvh;
+  width: 100dvw;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.glassNavbar {
+  /* border: 1px solid #00cfff; */
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  height: 10%;
+  position: sticky;
+  top: 0;
+  padding: 10px;
+  z-index: 1000;
+  backdrop-filter: blur(14px);
+  margin-top: 10px;
+  border-radius: 10px;
+  box-shadow: inset 0 0px 20px #00cfff;
+  /* border: 1px solid rgba(173, 216, 230, 0.2); */
+
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.navTitle {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #aee8ff;
+  text-shadow: 0 0 8px #00bcd4;
+  pointer-events: none;
+}
+
+.modalBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.modalContainer {
+  background: rgba(10, 25, 47, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 2rem;
+  color: #fff;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 0 20px rgba(0, 140, 255, 0.2);
+}
+
+.modalContainer h3 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  color: #00bcd4;
+}
+
+.modalContainer form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.modalContainer input {
+  padding: 0.5rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  outline: none;
+  transition: background 0.3s ease;
+}
+
+.modalContainer input:focus {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.modalActions {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.saveBtn,
+.cancelBtn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 45%;
+}
+
+.saveBtn {
+  background: linear-gradient(45deg, #00ff80, #00bcd4);
+  color: #000;
+}
+
+.cancelBtn {
+  background: linear-gradient(45deg, #ff3e3e, #f09819);
+  color: #fff;
+}
+
+.saveBtn:hover,
+.cancelBtn:hover {
+  opacity: 0.8;
+}
+
+.navBtn {
+  background: linear-gradient(145deg, #0f2a44, #123554);
+  border: 1px solid #00cfff;
+  color: #00e5ff;
+  width: 10%;
+  height: 80%;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 188, 212, 0.2);
+}
+
+.navBtn:hover {
+  background: rgba(0, 212, 255, 0.1);
+  box-shadow: 0 0 16px rgba(0, 212, 255, 0.3);
+}
+
+.logout {
+  background: linear-gradient(145deg, #0f2a44, #123554);
+  border: 1px solid #00cfff;
+  color: #00e5ff;
+  width: 100%;
+  height: 90%;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 188, 212, 0.2);
+}
+
+.logout:hover {
+  background: rgba(255, 107, 107, 0.1);
+  box-shadow: 0 0 16px rgba(255, 107, 107, 0.3);
+}
+
+.glassHeader {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  border-radius: 20px;
+  padding: 1.2rem 2rem;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  letter-spacing: 2px;
+  text-shadow: 0 0 5px #00f0ff;
+}
+
+/* Modified from grid to flex */
+.glassRow {
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  position: relative;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.1);
+}
+.productDetailsDescription {
+  width: 40%;
+  overflow: none;
+
+  height: 100%;
+}
+.productDetsName {
+  width: 20%;
+}
+
+.glassRow:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+}
+
+.tableHeader {
+  width: 90%;
+  height: 10%;
+  border-radius: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.15);
+  color: #00ffff;
+  border: 2px solid rgba(0, 255, 255, 0.3);
+  text-shadow: 0 0 6px #00ffff;
+}
+.productDetails {
+  width: auto;
+}
+.rowImage {
+  width: 80px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0, 255, 255, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.rowImage:hover {
+  transform: scale(1.1);
+}
+
+.catActions {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.tableWrapper {
+  width: 90%;
+  overflow-x: auto;
+  margin-top: 1rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+}
+
+.glassTable {
+  border-radius: 10x;
+  width: 100%;
+  min-width: 900px;
+  border-collapse: collapse;
+  color: #fff;
+}
+
+.tableHeader th {
+  background: rgba(255, 255, 255, 0.15);
+  width: 100%;
+  height: 20%;
+  text-align: left;
+  text-transform: uppercase;
+  color: #00ffff;
+  border-bottom: 2px solid rgba(0, 255, 255, 0.3);
+  text-shadow: 0 0 6px #00ffff;
+}
+
+.tableRow td {
+  padding: 0.6rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  vertical-align: top;
+}
+
+.productDetailsDescription {
+  max-width: 400px;
+  overflow-y: auto;
+  max-height: 80px;
+  text-align: justify;
+}
+
+.rowImage {
+  height: 50px;
+  border-radius: 8px;
+}
+
+/* Button Styles (reuse your existing styles) */
+
+.editBtn:hover::before,
+.deleteBtn:hover::before {
+  transform: scale(1);
+}
+
+.editBtn:hover,
+.deleteBtn:hover {
+  color: #000;
+}
+
+.deleteBtn {
+  border: 1px solid #ff3e3e;
+}
+
+.deleteBtn::before {
+  background: linear-gradient(45deg, #ff3e3e, #ffa600);
+}
+
+.catActions {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.sellerGlassCard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Let the inner wrapper scroll */
+}
+
+/* NEW: Inner scroll wrapper */
+.scrollWrapper {
+  overflow-x: auto;
+  width: 90%;
+}
+
+/* Product table/grid */
+.product {
+  display: grid;
+  grid-template-columns: 0.5fr 1.5fr 1fr 1fr 1.5fr 4fr 1fr;
+  align-items: center;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid #ccc;
+  min-width: 900px; /* Makes it wider than mobile screens */
+}
+
+/* Cell styling */
+.productDetails,
+.productDetailsDescription {
+  font-size: 0.9rem;
+  word-break: break-word;
+}
+
+/* Description cell scroll (vertical) */
+.productDetailsDescription {
+  width: 100%;
+  max-height: 80px;
+  overflow-y: auto;
+}
+
+/* Buttons */
+.actionButton {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.3rem;
+}
+
+.actionButton img {
+  height: 40px;
+  width: 40px;
+}
+.productField {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+}
+.productField select {
+  background: none;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  outline: none;
+  transition: background 0.3s ease;
+}
+
+.productField option:not(:checked) {
+  background-color: #fff;
+}
+.btn {
+  color: white;
+  background: none;
+  width: 40%;
+  border-radius: 10px;
+  border: none;
+  box-shadow: inset 0px 0px 20px 2px blue;
+  height: 40px;
+}
+
+.productField select option {
+  background-color: #fff0f3; /* pastel pink */
+  color: #333;
+}
+.productField select:hover,
+.productField select:focus {
+  background-color: #ffe5e9;
+  outline: none;
+  color: #000;
+  border-color: #ffa69e;
+}
