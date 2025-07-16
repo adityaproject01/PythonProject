@@ -11,7 +11,7 @@ def load_data(file):
             return json.load(f)
     return []
 
-def save_data(data, file):
+def save_data(file, data):
     with open(file, "w") as f:
         json.dump(data, f, indent=2)
 
@@ -24,7 +24,7 @@ def add_book():
     try:
         quantity = int(input("Quantity: "))
     except ValueError:
-        print("❌ Invalid quantity.")
+        print(" Invalid quantity.")
         return
 
     books = load_data(BOOKS_FILE)
@@ -37,7 +37,7 @@ def add_book():
                 book["quantity"] = 0
             book["quantity"] += quantity
             save_data(BOOKS_FILE, books)
-            print(f"✅ Updated quantity. Now {book['quantity']} copies of '{title}' available.")
+            print(f" Updated quantity. Now {book['quantity']} copies of '{title}' available.")
             return
 
     # If new book, add it to the list
@@ -49,17 +49,17 @@ def add_book():
     }
     books.append(new_book)
     save_data(BOOKS_FILE, books)
-    print("✅ New book added.")
+    print(" New book added.")
 
 
 # 2. View Books
 def view_books():
     books = load_data(BOOKS_FILE)
     if not books:
-        print("📂 No books in the catalog.")
+        print(" No books in the catalog.")
         return
 
-    print("\n📚 Available Books:")
+    print("\n Available Books:")
     for i, book in enumerate(books, 1):
         print(f"{i}. {book['title']} by {book['author']} | ISBN: {book.get('isbn', '-')}, Quantity: {book['quantity']}")
 
@@ -69,9 +69,9 @@ def search_book():
     books = load_data(BOOKS_FILE)
     found = [b for b in books if keyword in b["title"].lower() or keyword in b["author"].lower()]
     if not found:
-        print("🔍 No books found.")
+        print(" No books found.")
     else:
-        print("\n🔍 Search Results:")
+        print("\n Search Results:")
         for i, b in enumerate(found, 1):
             print(f"{i}. {b['title']} by {b['author']} | Quantity: {b['quantity']}")
 
@@ -94,13 +94,13 @@ def issue_book():
                     "issued_at": time,
                     "status": "Issued"
                 })
-                save_data(books, BOOKS_FILE)
-                save_data(records, RECORDS_FILE)
-                print(f"✅ Book '{book_title}' issued to {student}.")
+                save_data(BOOKS_FILE,books)
+                save_data(RECORDS_FILE,records)
+                print(f" Book '{book_title}' issued to {student}.")
             else:
-                print("❌ Book not available (0 quantity).")
+                print(" Book not available (0 quantity).")
             return
-    print("⚠️ Book not found.")
+    print(" Book not found.")
 
 # 5. Return Book
 def return_book():
@@ -124,21 +124,22 @@ def return_book():
                     book["quantity"] += 1
                     break
 
-            save_data(books, BOOKS_FILE)
-            save_data(records, RECORDS_FILE)
-            print(f"🔁 Book '{book_title}' returned by {student}.")
+            save_data(BOOKS_FILE,books)
+            save_data(RECORDS_FILE,records)
+            print(f" Book '{book_title}' returned by {student}.")
             return
 
-    print("⚠️ Issued record not found.")
+    print(" Issued record not found.")
 
 # 6. View All Transactions
 def view_transactions():
     records = load_data(RECORDS_FILE)
     if not records:
-        print("📂 No transactions found.")
+        print(" No transactions found.")
         return
 
-    print("\n📘 Transactions:")
+    print("\n Transactions:")
+    print("Name |","BookName |","Status |","Date |")
     for i, r in enumerate(records, 1):
         line = f"{i}. {r['student']} | {r['book']} | {r['status']} | Issued: {r['issued_at']}"
         if r["status"] == "Returned":
